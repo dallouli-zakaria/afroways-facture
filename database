@@ -1,0 +1,416 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 11, 2022 at 02:19 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `epiz_32023524_afroways`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `charged`
+--
+
+CREATE TABLE `charged` (
+  `id` smallint(6) NOT NULL,
+  `datecharge` date DEFAULT NULL,
+  `lieucharge` varchar(50) DEFAULT NULL,
+  `lieudecharge` varchar(50) DEFAULT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `charged`
+--
+
+INSERT INTO `charged` (`id`, `datecharge`, `lieucharge`, `lieudecharge`, `ice`, `nomfacture`) VALUES
+(64, '2022-07-07', 'MARRAKECH', 'SMEI-RABAT', '003155749794', 'FACTURE 10'),
+(65, '2022-06-30', 'TANGER', 'MARRAKECH', '00697895', 'FACTURE PEDRO'),
+(66, '2022-07-31', 'rabat', 'tanger', '926291917179', 'facture gamoune'),
+(67, '2022-07-10', 'tanger', 'agadir', '00649565', 'facture test'),
+(68, '2022-09-21', 'rabat', 'meknes-coca', '031564544545', 'fact152'),
+(69, '2022-11-04', 'marrakech', 'rabat', '07282626', 'fact22'),
+(70, '2022-11-17', 'rabat', 'marrakech', '06164565', 'fact10'),
+(71, '2022-12-13', 'marrakech', 'fes', '00326566', 'fact51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client`
+--
+
+CREATE TABLE `client` (
+  `codeclient` smallint(6) NOT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomclient` varchar(20) DEFAULT NULL,
+  `adresseclient` varchar(200) DEFAULT NULL,
+  `villeclient` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`codeclient`, `ice`, `nomclient`, `adresseclient`, `villeclient`) VALUES
+(10, '003155749794', 'KARIMI', 'LOT ISSIL RAFIAA BEN KHODIJ APPART N 369', 'RABAT'),
+(25, '06164565', 'zakaria1', 'LOT ISSIL RAFIAA BEN KHODIJ APPART N 369', 'RABAT'),
+(28, '00697895', 'PEDRO', 'ISSIL N 369\r\n', 'MARRAKECH'),
+(51, '00326566', 'test51', 'ahahha', 'ville51'),
+(52, '031564544545', 'harimi', 'tes test', 'marrakech'),
+(61, '926291917179', 'gamoune', 'hquqgqgq', 'marrakech'),
+(266, '00649565', 'test1', 'eee', 'agadir'),
+(836, '07282626', 'tibari', 'tibari oth 345', 'marrakech');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facturationtest`
+--
+
+CREATE TABLE `facturationtest` (
+  `id` smallint(6) NOT NULL,
+  `libelle` varchar(100) DEFAULT NULL,
+  `tarif` float DEFAULT NULL,
+  `quantite` float DEFAULT NULL,
+  `taxe` varchar(20) DEFAULT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `facturationtest`
+--
+
+INSERT INTO `facturationtest` (`id`, `libelle`, `tarif`, `quantite`, `taxe`, `ice`, `nomfacture`) VALUES
+(313, 'TAXE AD VALOREM', 158.52, 6, 'non taxable', '003155749794', 'FACTURE 10'),
+(314, 'FIAL', 12.33, 26, 'taxable 14%', '003155749794', 'FACTURE 10'),
+(315, 'GIALO', 158, 78, 'non taxable', '003155749794', 'FACTURE 10'),
+(316, 'MIK', 22.2, 36, 'taxable 20%', '003155749794', 'FACTURE 10'),
+(317, 'COCA', 4, 90, 'non taxable', '00697895', 'FACTURE PEDRO'),
+(318, 'FANTA', 3.5, 80, 'taxable 14%', '00697895', 'FACTURE PEDRO'),
+(319, 'coca', 3.5, 15, 'taxable 14%', '926291917179', 'facture gamoune'),
+(320, 'fanta', 4, 76, 'taxable 20%', '926291917179', 'facture gamoune'),
+(321, 'hawai', 14, 4, 'non taxable', '926291917179', 'facture gamoune'),
+(322, 'coca', 3.5, 502, 'taxable 20%', '00649565', 'facture test'),
+(323, 'fanta', 4, 200, 'taxable 20%', '00649565', 'facture test'),
+(324, 'hawai', 154, 4, 'non taxable', '00649565', 'facture test'),
+(325, 'fanta', 3.4, 55, 'taxable 14%', '031564544545', 'fact152'),
+(326, 'coca cola', 52.4, 33, 'non taxable', '031564544545', 'fact152'),
+(327, 'pepsi', 4, 50, 'taxable 14%', '031564544545', 'fact152'),
+(328, 'haouai', 2.3, 5, 'taxable 20%', '031564544545', 'fact152'),
+(329, 'coca', 5.3, 22, 'taxable 14%', '07282626', 'fact22'),
+(330, 'fanta', 7.3, 76, 'taxable 20%', '07282626', 'fact22'),
+(331, 'hawai', 3, 3, 'non taxable', '07282626', 'fact22'),
+(332, 'fanta', 4.2, 152, 'non taxable', '06164565', 'fact10'),
+(333, 'coca', 7.8, 36, 'non taxable', '06164565', 'fact10'),
+(334, 'hawai', 3.5, 258, 'taxable 14%', '06164565', 'fact10'),
+(335, 'poms', 4, 157, 'taxable 20%', '06164565', 'fact10'),
+(336, 'coca', 4.6, 5, 'taxable 14%', '00326566', 'fact51'),
+(337, 'fanta', 5, 30, 'non taxable', '00326566', 'fact51'),
+(338, 'hawai', 7.4, 33, 'non taxable', '00326566', 'fact51'),
+(339, 'poms', 14, 33, 'taxable 20%', '00326566', 'fact51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facture`
+--
+
+CREATE TABLE `facture` (
+  `id` smallint(6) NOT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL,
+  `datef` date DEFAULT NULL,
+  `dossier` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `facture`
+--
+
+INSERT INTO `facture` (`id`, `nomfacture`, `datef`, `dossier`) VALUES
+(64, 'FACTURE 10', '2022-07-07', 'DOSSIER 10'),
+(65, 'FACTURE PEDRO', '2022-07-09', 'DOSSIER PEDRO'),
+(66, 'facture gamoune', '2022-07-14', 'dossier gam'),
+(67, 'facture test', '2022-07-03', 'dossier test'),
+(68, 'fact152', '2022-09-28', 'dossier152'),
+(69, 'fact22', '2022-11-04', 'doss22'),
+(70, 'fact10', '2022-11-20', 'doss1'),
+(71, 'fact51', '2022-11-29', 'doss51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marchandise`
+--
+
+CREATE TABLE `marchandise` (
+  `id` smallint(6) NOT NULL,
+  `nremoque` varchar(50) DEFAULT NULL,
+  `naturem` varchar(50) DEFAULT NULL,
+  `nbrcolis` int(11) DEFAULT NULL,
+  `poids` float DEFAULT NULL,
+  `volume` float DEFAULT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `marchandise`
+--
+
+INSERT INTO `marchandise` (`id`, `nremoque`, `naturem`, `nbrcolis`, `poids`, `volume`, `ice`, `nomfacture`) VALUES
+(63, 'RMQ1235', 'PIECES AUTOMOBILE', 15, 22.66, 23, '003155749794', 'FACTURE 10'),
+(64, 'RMQ1238', 'PIECES AUTOMOBILE', 57, 258.36, 36, '00697895', 'FACTURE PEDRO'),
+(65, 'tqicq', 'sode', 68, 816.38, 58, '926291917179', 'facture gamoune'),
+(66, 'rma45', 'fourni', 25, 15220, 696, '00649565', 'facture test'),
+(67, '152', 'pieces automobile', 55, 1236, 54, '031564544545', 'fact152'),
+(68, 'uqo', 'soda', 3, 7159.22, 76, '07282626', 'fact22'),
+(69, 'rmq4', 'soda', 55, 22.1, 4, '06164565', 'fact10'),
+(70, 'rmq51', 'soda', 15, 1203.21, 55, '00326566', 'fact51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblfacturation`
+--
+
+CREATE TABLE `tblfacturation` (
+  `id` smallint(6) NOT NULL,
+  `libelle` varchar(50) DEFAULT NULL,
+  `nontxbl` float DEFAULT NULL,
+  `txbl` float DEFAULT NULL,
+  `taxe` float DEFAULT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblfacturation`
+--
+
+INSERT INTO `tblfacturation` (`id`, `libelle`, `nontxbl`, `txbl`, `taxe`, `ice`, `nomfacture`) VALUES
+(340, 'TAXE AD VALOREM', 951.12, 0, 0, '003155749794', 'FACTURE 10'),
+(341, 'FIAL', 0, 320.58, 44.8812, '003155749794', 'FACTURE 10'),
+(342, 'GIALO', 12324, 0, 0, '003155749794', 'FACTURE 10'),
+(343, 'MIK', 0, 799.2, 159.84, '003155749794', 'FACTURE 10'),
+(344, 'COCA', 360, 0, 0, '00697895', 'FACTURE PEDRO'),
+(345, 'FANTA', 0, 280, 39.2, '00697895', 'FACTURE PEDRO'),
+(346, 'coca', 0, 52.5, 7.35, '926291917179', 'facture gamoune'),
+(347, 'fanta', 0, 304, 60.8, '926291917179', 'facture gamoune'),
+(348, 'hawai', 56, 0, 0, '926291917179', 'facture gamoune'),
+(349, 'coca', 0, 1757, 351.4, '00649565', 'facture test'),
+(350, 'fanta', 0, 800, 160, '00649565', 'facture test'),
+(351, 'hawai', 616, 0, 0, '00649565', 'facture test'),
+(352, 'fanta', 0, 187, 26.18, '031564544545', 'fact152'),
+(353, 'coca cola', 1729.2, 0, 0, '031564544545', 'fact152'),
+(354, 'pepsi', 0, 200, 28, '031564544545', 'fact152'),
+(355, 'haouai', 0, 11.5, 2.3, '031564544545', 'fact152'),
+(356, 'coca', 0, 116.6, 16.324, '07282626', 'fact22'),
+(357, 'fanta', 0, 554.8, 110.96, '07282626', 'fact22'),
+(358, 'hawai', 9, 0, 0, '07282626', 'fact22'),
+(359, 'fanta', 638.4, 0, 0, '06164565', 'fact10'),
+(360, 'coca', 280.8, 0, 0, '06164565', 'fact10'),
+(361, 'hawai', 0, 903, 126.42, '06164565', 'fact10'),
+(362, 'poms', 0, 628, 125.6, '06164565', 'fact10'),
+(363, 'coca', 0, 23, 3.22, '00326566', 'fact51'),
+(364, 'fanta', 150, 0, 0, '00326566', 'fact51'),
+(365, 'hawai', 244.2, 0, 0, '00326566', 'fact51'),
+(366, 'poms', 0, 462, 92.4, '00326566', 'fact51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `total`
+--
+
+CREATE TABLE `total` (
+  `id` smallint(6) NOT NULL,
+  `nontaxable` float DEFAULT NULL,
+  `taxable` float DEFAULT NULL,
+  `taxe` float DEFAULT NULL,
+  `tva14` float DEFAULT NULL,
+  `tva20` float DEFAULT NULL,
+  `totalht` float DEFAULT NULL,
+  `sommel` varchar(200) DEFAULT NULL,
+  `devise` varchar(10) DEFAULT NULL,
+  `reglement` varchar(200) NOT NULL,
+  `echeance` date DEFAULT NULL,
+  `totalttc` float DEFAULT NULL,
+  `ice` varchar(50) DEFAULT NULL,
+  `nomfacture` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `total`
+--
+
+INSERT INTO `total` (`id`, `nontaxable`, `taxable`, `taxe`, `tva14`, `tva20`, `totalht`, `sommel`, `devise`, `reglement`, `echeance`, `totalttc`, `ice`, `nomfacture`) VALUES
+(81, 13275.1, 1119.78, 204.721, 44.8812, 159.84, 14394.9, 'Quatorze mille cinq cent quatre-vingt dix neuf   DHS ET  soixante deux  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-07-21', 14599.6, '003155749794', 'FACTURE 10'),
+(82, 360, 280, 39.2, 39.2, 0, 640, 'Six cent soixante dix neuf   DHS ET  vingt  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-07-22', 679.2, '00697895', 'FACTURE PEDRO'),
+(83, 56, 356.5, 68.15, 7.35, 60.8, 412.5, 'Quatre cent quatre-vingt    DHS ET  soixante cinq  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-07-16', 480.65, '926291917179', 'facture gamoune'),
+(84, 616, 2557, 511.4, 0, 511.4, 3173, 'Trois  mille six cent quatre-vingt quatre    DHS ET  quarante  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-07-27', 3684.4, '00649565', 'facture test'),
+(85, 1729.2, 398.5, 56.48, 54.18, 2.3, 2127.7, 'Deux  mille cent quatre-vingt quatre    DHS ET  dix huit CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-09-24', 2184.18, '031564544545', 'fact152'),
+(86, 9, 671.4, 127.28, 16.32, 110.96, 680.4, 'Huit cent sept    DHS ET  soixante huit  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-11-19', 807.68, '07282626', 'fact22'),
+(87, 919.2, 1531, 252.02, 126.42, 125.6, 2450.2, 'Deux  mille sept cent deux    DHS ET  vingt deux  CTS', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-11-22', 2702.22, '06164565', 'fact10'),
+(88, 394.2, 485, 95.62, 3.22, 92.4, 879.2, '<br /><b>Warning</b>:  Undefined array key ', 'mad', 'vierment au 007 640 0005369000000416 47 ', '2022-12-14', 974.82, '00326566', 'fact51');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `charged`
+--
+ALTER TABLE `charged`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_1f` (`ice`),
+  ADD KEY `fk_f2` (`nomfacture`);
+
+--
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`codeclient`),
+  ADD UNIQUE KEY `ice` (`ice`),
+  ADD UNIQUE KEY `UC_client` (`nomclient`);
+
+--
+-- Indexes for table `facturationtest`
+--
+ALTER TABLE `facturationtest`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_1ft` (`ice`),
+  ADD KEY `fk_2ft` (`nomfacture`);
+
+--
+-- Indexes for table `facture`
+--
+ALTER TABLE `facture`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nomfacture` (`nomfacture`),
+  ADD UNIQUE KEY `dossier` (`dossier`);
+
+--
+-- Indexes for table `marchandise`
+--
+ALTER TABLE `marchandise`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_1m` (`ice`),
+  ADD KEY `fk_2m` (`nomfacture`);
+
+--
+-- Indexes for table `tblfacturation`
+--
+ALTER TABLE `tblfacturation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_1tf` (`ice`),
+  ADD KEY `fk_2tff` (`nomfacture`);
+
+--
+-- Indexes for table `total`
+--
+ALTER TABLE `total`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_1tot` (`ice`),
+  ADD KEY `fk_2tot` (`nomfacture`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `charged`
+--
+ALTER TABLE `charged`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
+-- AUTO_INCREMENT for table `facturationtest`
+--
+ALTER TABLE `facturationtest`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
+
+--
+-- AUTO_INCREMENT for table `facture`
+--
+ALTER TABLE `facture`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
+-- AUTO_INCREMENT for table `marchandise`
+--
+ALTER TABLE `marchandise`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT for table `tblfacturation`
+--
+ALTER TABLE `tblfacturation`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=367;
+
+--
+-- AUTO_INCREMENT for table `total`
+--
+ALTER TABLE `total`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `charged`
+--
+ALTER TABLE `charged`
+  ADD CONSTRAINT `fk_1f` FOREIGN KEY (`ice`) REFERENCES `client` (`ice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_f2` FOREIGN KEY (`nomfacture`) REFERENCES `facture` (`nomfacture`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `facturationtest`
+--
+ALTER TABLE `facturationtest`
+  ADD CONSTRAINT `fk_1ft` FOREIGN KEY (`ice`) REFERENCES `client` (`ice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_2ft` FOREIGN KEY (`nomfacture`) REFERENCES `facture` (`nomfacture`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `marchandise`
+--
+ALTER TABLE `marchandise`
+  ADD CONSTRAINT `fk_1m` FOREIGN KEY (`ice`) REFERENCES `client` (`ice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_2m` FOREIGN KEY (`nomfacture`) REFERENCES `facture` (`nomfacture`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `tblfacturation`
+--
+ALTER TABLE `tblfacturation`
+  ADD CONSTRAINT `fk_1tf` FOREIGN KEY (`ice`) REFERENCES `client` (`ice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_2tff` FOREIGN KEY (`nomfacture`) REFERENCES `facture` (`nomfacture`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `total`
+--
+ALTER TABLE `total`
+  ADD CONSTRAINT `fk_1tot` FOREIGN KEY (`ice`) REFERENCES `client` (`ice`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_2tot` FOREIGN KEY (`nomfacture`) REFERENCES `facture` (`nomfacture`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
