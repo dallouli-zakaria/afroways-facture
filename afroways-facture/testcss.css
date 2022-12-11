@@ -1,0 +1,180 @@
+
+
+
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+.headra{
+   
+   display: flex;
+   justify-content:space-around;
+}
+.tbl{
+margin-top: 5%;
+}
+.tbl2 {
+border-collapse: collapse;
+width: 60%;
+margin-left: 10%;
+border:solid;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.tbl2 th,.tbl2 td{
+    text-align: center;
+    padding: 10px;
+    border: solid;
+    padding: 5px;
+}
+
+.ice{
+    color:darkblue;
+    font-size:15px;
+    
+}
+.charge{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 60%;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+.tbl3 {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    border:solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+    
+.tbl3 th,.tbl3 td{
+        text-align: center;
+        padding: 10px;
+        border: solid;
+        padding: 5px;
+ }
+ .tbl4 {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    border:solid;
+    margin-top: 20px;
+border-bottom: none;
+    }
+    
+.tbl4 th,.tbl4 td{
+        text-align: center;
+        padding: 10px;
+        border: solid;
+        border-bottom: none;
+        padding: 5px;
+ }
+ .maintr{
+    height: 400px;
+ }
+
+ .tbl5 {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    border:solid;
+    margin-bottom: 20px;
+    }
+    
+.tbl5 th,.tbl5 td{
+        text-align: center;
+        padding: 10px;
+
+        border: solid;
+        border-top:none ;
+        padding: 5px;
+ }
+ .tbl5 :nth-child(1){
+    width: 31%;
+ }
+ .tbl5 :nth-child(2){
+    width: 30.8%;
+ }
+ .sommep{
+    display: flex;
+    padding: 15px;
+    margin-left:8% ;
+    font-weight: bold;
+
+
+ }
+ #s1{
+    padding: 20px;
+ }
+ #s2{
+    padding: 40px;
+ }
+
+
+ .tblf {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    border:solid;
+    
+    }
+    
+    .tblf th,.tblf td{
+        text-align: center;
+        padding: 10px;
+        padding: 5px;
+
+    }
+    .tblf thead{
+        text-decoration: underline;
+    }
+
+
+.bodya{
+    margin-bottom: 100px;
+}
+.brd{
+    width: 80%;
+    height: 5px;
+    margin-left: 10%;
+    color: grey;
+    border: solid;
+}
+.lv1{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 30%;
+}
+
+.lv2{
+    margin-left: 15%;
+    padding: 2px;
+}
+.lv3{
+    margin-left: 10%;
+}
+.chrg {
+    width: 50%;
+    margin-left: 10%;
+    font-weight: bold;
+}
+.img1{
+max-width: 1000px;
+max-width: 1000px;
+}
+.brd2{
+    width: 80%;
+    height: 4px;
+    margin-left: 10%;
+    color: black;
+    border: solid;
+    
+}
